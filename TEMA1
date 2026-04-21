@@ -1,1 +1,13 @@
+# Datos
+valor_real = 10
+valor_aproximado = 9.8
 
+# Cálculos
+error_absoluto = abs(valor_real - valor_aproximado)
+error_relativo = error_absoluto / abs(valor_real)
+precision = (1 - error_relativo) * 100
+
+# Resultados
+print("Error absoluto:", error_absoluto)
+print("Error relativo:", error_relativo)
+print("Precisión (%):", precision)
