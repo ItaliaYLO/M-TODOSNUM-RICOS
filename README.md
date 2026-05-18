@@ -12,10 +12,10 @@ Selecciona un módulo para explorar su contenido detallado:
 
 | Módulo | Descripción General | Acceso Directo |
 | :--- | :--- | :---: |
-| <br>**01. Análisis de Errores**<br><br> | Precisión computacional, estabilidad numérica, épsilon de la máquina y series de Taylor. | [📂 Ir a Carpeta](./01_analisis_errores) |
-| <br>**02. Solución de Ecuaciones**<br><br> | Métodos de bisección, punto fijo, Lagrange, Newton-Raphson y búsqueda de raíces. | [📂 Ir a Carpeta](./02_resolucion_ecuaciones) |
-| <br>**03. Sistemas de Ecuaciones Lineales**<br><br> | Métodos directos (Gauss-Jordan) e iterativos (Jacobi, Gauss-Seidel) para sistemas $Ax = B$. | [📂 Ir a Carpeta](./03_sistemas_lineales) |
-| <br>**04. Diferenciación e Integración**<br><br> | Integración por Trapecio y Simpson, y aproximación de derivadas por diferencias finitas. | [📂 Ir a Carpeta](./04_calculo_numerico) |
+| <br>**01. Análisis de Errores**<br><br> | Precisión computacional, estabilidad numérica, épsilon de la máquina y series de Taylor. | [📂 Ir a Carpeta](./Tema01) |
+| <br>**02. Solución de Ecuaciones**<br><br> | Métodos de bisección, punto fijo, Lagrange, Newton-Raphson y búsqueda de raíces. | [📂 Ir a Carpeta](./Tema02) |
+| <br>**03. Sistemas de Ecuaciones Lineales**<br><br> | Métodos directos (Gauss-Jordan) e iterativos (Jacobi, Gauss-Seidel) para sistemas $Ax = B$. | [📂 Ir a Carpeta](./Tema03) |
+| <br>**04. Diferenciación e Integración**<br><br> | Integración por Trapecio y Simpson, y aproximación de derivadas por diferencias finitas. | [📂 Ir a Carpeta](./Tema04) |
 
 
 
