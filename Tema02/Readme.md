@@ -113,3 +113,39 @@ Catálogo de problemas resueltos diseñados para evaluar la convergencia y diver
 | **03. Análisis de Convergencia** | Comparativa matemática demostrando por qué algunos despejes divergen. | [ ver_codigo.py](./13_analisis_convergencia.py) |
 | **04. Función Exponencial** | Búsqueda de punto fijo en curvas exponenciales amortiguadas. | [ ver_codigo.py](./14_g_exponencial.py) |
 | **05. Función Fraccionaria** | Despeje racional iterativo controlado para evitar divisiones por cero. | [ ver_codigo.py](./15_g_fraccionaria.py) |
+
+---
+
+## 4️ Método de Newton-Raphson
+
+###  Concepto Fundamental
+El método de **Newton-Raphson** es un algoritmo abierto que utiliza el cálculo diferencial para acelerar la búsqueda de raíces. A partir de un valor inicial estimado $x_0$, el método traza una línea tangente a la curva de la función en el punto $(x_0, f(x_0))$. El punto donde esta línea recta tangente cruza el eje $x$ se convierte en nuestra siguiente aproximación mejorada ($x_1$).
+
+Debido a que utiliza información tanto del valor de la función como de su pendiente (derivada), tiene una velocidad de **convergencia cuadrática**. Esto significa que el número de dígitos significativos correctos aproximadamente se duplica en cada iteración. Su única gran limitante es que requiere conocer analíticamente la derivada $f'(x)$ y que esta no sea cero en ningún punto evaluado ($f'(x) \neq 0$).
+
+###  El Algoritmo Paso a Paso
+
+1. **Entrada:** Definir la función $f(x)$, su derivada analítica $f'(x)$, y un valor semilla inicial $x_0$.
+2. **Cálculo Iterativo:** Se proyecta la intersección de la tangente con el eje $x$ mediante la fórmula recursiva:
+   $$x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}$$
+3. **Validación Crítica:** Si en algún punto $f'(x_i)$ se aproxima a cero, el algoritmo se detiene para evitar una división por cero (lo que geométricamente significa una tangente horizontal que nunca cruzará el eje $x$).
+4. **Criterio de Parada:** El ciclo finaliza cuando el error absoluto o relativo entre dos aproximaciones consecutivas es menor que la tolerancia:
+   $$|x_{i+1} - x_i| < \text{tol}$$
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Newton-Raphson General](./newton_raphson_base.py)
+
+###  Ejercicios Desarrollados
+Soluciones numéricas optimizadas aplicando Newton-Raphson en diferentes tipos de funciones complejas:
+
+| Caso de Estudio | Función / Aplicación | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Newton en Polinomios** | Raíces exactas en polinomios clásicos de grado superior. | [ ver_codigo.py](./16_newton_polinomios.py) |
+| **02. Raíces de Grado $n$** | Algoritmo optimizado para calcular raíces cúbicas o quintas de cualquier número. | [ ver_codigo.py](./17_newton_raiz_n.py) |
+| **03. Convergencia Rápida** | Demostración de cómo el método converge en poquísimas iteraciones. | [ ver_codigo.py](./18_convergencia_rapida.py) |
+| **04. Newton con Trigonométricas** | Resolución de ecuaciones oscilatorias donde la pendiente cambia drásticamente. | [ ver_codigo.py](./19_newton_trigonometricas.py) |
+| **05. Newton con Exponenciales** | Aplicación en modelos de transferencia o decaimiento exponencial. | [ ver_codigo.py](./20_newton_exponenciales.py) |
