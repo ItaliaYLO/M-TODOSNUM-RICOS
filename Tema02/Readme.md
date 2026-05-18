@@ -149,3 +149,39 @@ Soluciones numéricas optimizadas aplicando Newton-Raphson en diferentes tipos d
 | **03. Convergencia Rápida** | Demostración de cómo el método converge en poquísimas iteraciones. | [ ver_codigo.py](./18_convergencia_rapida.py) |
 | **04. Newton con Trigonométricas** | Resolución de ecuaciones oscilatorias donde la pendiente cambia drásticamente. | [ ver_codigo.py](./19_newton_trigonometricas.py) |
 | **05. Newton con Exponenciales** | Aplicación en modelos de transferencia o decaimiento exponencial. | [ ver_codigo.py](./20_newton_exponenciales.py) |
+
+---
+
+## 5️ Método de la Secante
+
+###  Concepto Fundamental
+El método de la **Secante** es un algoritmo abierto que funciona de manera similar al de Newton-Raphson, pero con una gran ventaja práctica: **no requiere calcular la derivada de la función**. En su lugar, aproxima la pendiente de la tangente utilizando una diferencia finita basada en dos puntos previos ($x_{i-1}$ y $x_i$).
+
+Geométricamente, traza una línea secante que pasa por los puntos $(x_{i-1}, f(x_{i-1}))$ y $(x_i, f(x_i))$. El lugar exacto donde esta línea corta el eje $x$ se convierte en la nueva aproximación ($x_{i+1}$). Al ser un método abierto, no requiere que los dos valores iniciales encierren obligatoriamente la raíz (no exige cambio de signo), pero sí es vital que estén relativamente cerca de ella para garantizar la convergencia.
+
+###  El Algoritmo Paso a Paso
+
+1. **Entrada:** Definir la función $f(x)$ y establecer dos puntos iniciales de arranque: $x_0$ y $x_1$.
+2. **Aproximación de la Raíz ($x_{i+1}$):** Se calcula el siguiente término sustituyendo la derivada de Newton por la fórmula de la pendiente secante:
+   $$x_{i+1} = x_i - \frac{f(x_i)(x_{i-1} - x_i)}{f(x_{i-1}) - f(x_i)}$$
+3. **Validación de Pendiente:** Si los valores de la función en ambos puntos se igualan ($f(x_{i-1}) = f(x_i)$), el denominador se vuelve cero. En este caso, el algoritmo se detiene para evitar una indeterminación.
+4. **Criterio de Parada:** El ciclo de cálculo termina cuando la diferencia absoluta entre las últimas dos aproximaciones es menor que la tolerancia:
+   $$|x_{i+1} - x_i| < \text{tol}$$
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de la Secante General](./secante_base.py)
+
+###  Ejercicios Desarrollados
+Menú interactivo con problemas resueltos aplicando la aproximación por secantes en escenarios de ingeniería:
+
+| Caso de Estudio | Función / Aplicación | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Secante en Polinomios** | Extracción de raíces sin calcular derivadas en ecuaciones de grado superior. | [ ver_codigo.py](./21_secante_polinomios.py) |
+| **02. Función Trascendental** | Resolución de ecuaciones mixtas trigonométricas mediante diferencias finitas. | [ ver_codigo.py](./22_secante_trascendental.py) |
+| **03. Evitando la Indeterminación** | Prueba de estabilidad controlando que el denominador no se haga cero. | [ ver_codigo.py](./23_estabilidad_denominador.py) |
+| **04. Comparativa de Semillas** | Evaluación de cómo afecta la elección de los dos puntos de arranque ($x_0, x_1$). | [ ver_codigo.py](./24_comparativa_semillas.py) |
+| **05. Caso Exponencial Complejo** | Solución numérica en curvas asintóticas donde Newton sería muy complejo de derivar. | [ ver_codigo.py](./25_secante_exponencial.py) |
