@@ -1,1 +1,23 @@
-# M-TODOSNUM-RICOS
+# Métodos Numéricos
+
+Bienvenidos a este repositorio. Aquí encontrarás los algoritmos, apuntes y soluciones optimizadas para resolver problemas matemáticos complejos mediante aproximaciones computacionales.
+
+Utiliza el menú de abajo para navegar directamente a la carpeta de cada módulo, donde encontrarás el código fuente, la documentación y los ejercicios específicos.
+
+---
+
+## 🗂️ Índice del Repositorio
+
+Selecciona un módulo para explorar su contenido detallado:
+
+| Módulo | Descripción General | Acceso Directo |
+| :--- | :--- | :---: |
+| <br>**01. Análisis de Errores**<br><br> | Precisión computacional, estabilidad numérica, épsilon de la máquina y series de Taylor. | [📂 Ir a Carpeta](./01_analisis_errores) |
+| <br>**02. Solución de Ecuaciones**<br><br> | Métodos de bisección, punto fijo, Lagrange, Newton-Raphson y búsqueda de raíces. | [📂 Ir a Carpeta](./02_resolucion_ecuaciones) |
+| <br>**03. Sistemas de Ecuaciones Lineales**<br><br> | Métodos directos (Gauss-Jordan) e iterativos (Jacobi, Gauss-Seidel) para sistemas $Ax = B$. | [📂 Ir a Carpeta](./03_sistemas_lineales) |
+| <br>**04. Diferenciación e Integración**<br><br> | Integración por Trapecio y Simpson, y aproximación de derivadas por diferencias finitas. | [📂 Ir a Carpeta](./04_calculo_numerico) |
+
+
+
+* **Lenguaje Principal:** [Tu Lenguaje aquí, ej: Python 3.x / MATLAB]
+* **Librerías sugeridas:** NumPy, SciPy, Matplotlib (para gráficas de convergencia).
