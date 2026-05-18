@@ -19,5 +19,5 @@ Selecciona un módulo para explorar su contenido detallado:
 
 
 
-* **Lenguaje Principal:** [Tu Lenguaje aquí, ej: Python 3.x / MATLAB]
+* **Lenguaje Principal:** [TPython 3]
 * **Librerías sugeridas:** NumPy, SciPy, Matplotlib (para gráficas de convergencia).
