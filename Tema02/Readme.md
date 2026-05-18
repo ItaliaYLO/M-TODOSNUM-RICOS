@@ -4,7 +4,7 @@ En este módulo se exploran los algoritmos analíticos y numéricos utilizados p
 
 ---
 
-## 1️Método de Bisección
+## 1️ Método de Bisección
 
 ### Concepto Fundamental
 Es un algoritmo iterativo de búsqueda de raíces que se clasifica dentro de los **métodos cerrados o de intervalo**. Funciona dividiendo repetidamente un intervalo a la mitad y seleccionando el subintervalo donde se garantiza que se encuentra la raíz. 
@@ -40,3 +40,38 @@ Menú interactivo con problemas resueltos aplicando el método de bisección sob
 | **03. Función Trascendental** | Combinación de identidades y álgebra mixta. | [ ver_codigo.py](./03_funcion_trascendental.py) |
 | **04. Función Exponencial** | Búsqueda de ceros en curvas de crecimiento y decaimiento. | [ ver_codigo.py](./04_funcion_exponencial.py) |
 | **05. Función Logarítmica** | Solución numérica limitando el dominio a valores positivos. | [ ver_codigo.py](./05_funcion_logaritmica.py) |
+
+---
+
+## 2️ Método de Regla Falsa (Regula Falsi)
+
+###  Concepto Fundamental
+A diferencia del método de bisección, que divide el intervalo ciegamente a la mitad, el método de la **Regla Falsa** aprovecha la geometría de la función. Conecta los puntos $(a, f(a))$ y $(b, f(b))$ mediante una línea recta (secante). La intersección de esta línea recta con el eje $x$ nos da una estimación de la raíz ($x_r$), lo que suele acelerar la convergencia en comparación con bisección si la curva es relativamente plana.
+
+Al ser también un **método cerrado**, sigue requiriendo que el intervalo inicial cumpla con el cambio de signo de Bolzano ($f(a) \cdot f(b) < 0$).
+
+###  El Algoritmo Paso a Paso
+
+1. **Entrada e Intervalo:** Definir límites iniciales $[a, b]$ que encierren la raíz con cambio de signo.
+2. **Cálculo de la Intersección ($x_r$):** Se calcula la aproximación de la raíz mediante la fórmula de la recta interpolante:
+   $$x_r = b - \frac{f(b)(a - b)}{f(a) - f(b)}$$
+3. **Criterio de Actualización:** Se evalúa el signo del producto para mover los límites del intervalo de la misma forma que en bisección.
+4. **Condición de Parada:** El proceso se repite cíclicamente hasta que el error aproximado cumpla con la tolerancia establecida.
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Regla Falsa General](./regla_falsa_base.py)
+
+### 🛠️ Ejercicios Desarrollados
+Menú de problemas resueltos aplicando el método sobre diversas funciones matemáticas:
+
+| Caso de Estudio | Tipo de Función / Enfoque | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Raíz de $x^2 - 2$** | Cálculo exacto aproximado para la raíz cuadrada de 2. | [ ver_codigo.py](./06_raiz_cuadrada.py) |
+| **02. Polinomio de Grado 3** | Análisis de convergencia en curvas cúbicas más pronunciadas. | [ ver_codigo.py](./07_polinomio_grado3.py) |
+| **03. Función Trigonométrica** | Evaluación de raíces oscilatorias acotadas en un intervalo. | [ ver_codigo.py](./08_funcion_trigonometrica.py) |
+| **04. Función Combinada** | Mezcla de términos algebraicos y exponenciales simultáneos. | [ ver_codigo.py](./09_funcion_combinada.py) |
+| **05. Análisis de Error Porcentual** | Monitoreo estricto del error porcentual en cada paso. | [ ver_codigo.py](./10_error_porcentual_reglafalsa.py) |
