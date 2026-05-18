@@ -44,3 +44,38 @@ Catálogo de programas independientes que aplican la eliminación gaussiana sobr
 | **03. Aplicación en Circuitos** | Resolución de mallas eléctricas utilizando las Leyes de Kirchhoff. | [ ver_codigo.py](./03_aplicacion_circuitos.py) |
 | **04. Matriz Mal Condicionada** | Estudio de sistemas hipersensibles donde un pequeño cambio numérico altera radicalmente la solución. | [ ver_codigo.py](./04_matriz_mal_condicionada.py) |
 | **05. Sistema 4x4** | Escalación matemática del algoritmo para un sistema de mayores dimensiones. | [ ver_codigo.py](./05_sistema_4x4.py) |
+
+
+#  Método de Gauss-Jordan
+
+###  Concepto Fundamental
+El método de **Gauss-Jordan** es una variación directa del método de eliminación gaussiana. La principal diferencia radica en que, en lugar de reducir la matriz de coeficientes a una forma triangular superior para luego aplicar sustitución hacia atrás, Gauss-Jordan continúa el proceso de eliminación de forma bilateral. 
+
+Esto significa que elimina los términos no nulos tanto **debajo como encima de la diagonal principal**, al mismo tiempo que normaliza cada fila dividiéndola entre su propio elemento pivote. El objetivo final es transformar la matriz original $A$ en una **matriz identidad** ($I$). Al lograrlo, los valores del vector de términos independientes $b$ se transforman automáticamente en las soluciones exactas del sistema, eliminando por completo la necesidad de una fase de sustitución regresiva.
+
+###  El Algoritmo Paso a Paso
+
+1. **Estructura Aumentada:** Se plantea la matriz aumentada inicial $[A | b]$.
+2. **Normalización:** Para cada fila pivote $k$ (desde $1$ hasta $n$), se divide toda la fila entre el elemento de la diagonal principal $a_{kk}$ para convertir el pivote en la unidad ($1$):
+   $$\text{Fila}_k = \frac{\text{Fila}_k}{a_{kk}}$$
+3. **Eliminación Cruzada:** Para todas las demás filas del sistema ($i \neq k$), se eliminan los elementos de la columna actual haciendo la operación elemental de renglón:
+   $$\text{Fila}_i = \text{Fila}_i - a_{ik} \cdot \text{Fila}_k$$
+4. **Lectura Directa:** Al completar el ciclo para las $n$ columnas, la matriz se habrá convertido en $[I | x]$, donde el vector resultante del lado derecho es la solución directa del sistema.
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Gauss-Jordan General](./gauss_jordan_base.py)
+
+###  Ejercicios Desarrollados
+ scripts automatizados diseñados para explorar las capacidades de reducción completa y aplicaciones algebraicas de Gauss-Jordan:
+
+| Caso de Estudio | Tipo de Sistema / Enfoque | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Sistema 3x3** | Solución directa reduciendo una matriz de 3x3 a la matriz identidad. | [ ver_codigo.py](./06_gauss_jordan_3x3.py) |
+| **02. Cálculo de Matriz Inversa** | Algoritmo extendido para obtener la inversa de una matriz ($A^{-1}$) usando la identidad. | [ ver_codigo.py](./07_calculo_inversa.py) |
+| **03. Sistema sin Solución** | Detección analítica de sistemas inconsistentes o indeterminados (Determinante nulo). | [ ver_codigo.py](./08_sistema_sin_solucion.py) |
+| **04. Infinitas Soluciones** | Manejo de matrices singulares con infinitas soluciones dependientes de variables libres. | [ ver_codigo.py](./09_infinitas_soluciones.py) |
+| **05. Balanceo Químico** | Aplicación práctica para balancear ecuaciones estequiométricas mediante sistemas homogéneos. | [ ver_codigo.py](./10_balanceo_quimico.py) |
