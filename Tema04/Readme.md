@@ -28,3 +28,39 @@ Scripts ejecutables diseñados para explorar la aproximación de la primera deri
 | **01. Validación Trigonométrica** | Evaluación analítica comparando la aproximación numérica frente a la derivada exacta de funciones trigonométricas. | [ ver_codigo.py](./4_Dif_3P_1.py) |
 | **02. Estimación de Velocidad** | Aplicación en física clásica para estimar la velocidad instantánea a partir de tablas discretas de posición-tiempo. | [ ver_codigo.py](./4_Dif_3P_2.py) |
 | **03. Estudio de Convergencia** | Análisis de sensibilidad variando dinámicamente el tamaño de paso $h$ para observar el comportamiento del error. | [ ver_codigo.py](./4_Dif_3P_3.py) |
+
+
+#  Métodos de Diferenciación Numérica: Regla de Diferencias de Cinco Puntos
+
+###  Concepto Fundamental
+La **Regla de Diferencias de Cinco Puntos** es un esquema avanzado de diferenciación numérica que incrementa drásticamente la exactitud de la aproximación de la primera derivada en un punto $x_0$. Mientras que el método de tres puntos solo consulta a los vecinos inmediatos, este algoritmo extiende su muestreo evaluando dos nodos simétricos a la izquierda y dos a la derecha.
+
+A través de esta ponderación estratégica de coeficientes, el algoritmo cancela por completo tanto los términos de error de segundo orden como los de tercer orden de la Serie de Taylor. El resultado es un **error de truncamiento de cuarto orden $O(h^4)$**. En la práctica, esto implica una convergencia asombrosamente veloz: si divides el tamaño de paso $h$ a la mitad, ¡el error se reduce en un factor de $2^4 = 16$ veces! Es el estándar preferido para simulaciones dinámicas y modelado de órbitas de alta fidelidad.
+
+###  El Algoritmo Paso a Paso
+
+1. **Configuración Inicial:** Definir el punto de interés $x_0$ y el tamaño de paso base $h$.
+2. **Muestreo Cuádruple:** Evaluar la función original en sus cuatro nodos vecinos distribuidos simétricamente:
+   * $f(x_0 - 2h)$ (Dos pasos atrás)
+   * $f(x_0 - h)$ (Un paso atrás)
+   * $f(x_0 + h)$ (Un paso adelante)
+   * $f(x_0 + 2h)$ (Dos pasos adelante)
+3. **Ponderación de Coeficientes:** Multiplicar cada evaluación por sus coeficientes específicos deducidos algebraicamente para forzar la cancelación de errores intermedios.
+4. **Cálculo de la Fórmula Central:** Unificar los términos y dividir el resultado neto entre $12h$:
+   $$f'(x_0) \approx \frac{-f(x_0 + 2h) + 8f(x_0 + h) - 8f(x_0 - h) + f(x_0 - 2h)}{12h}$$
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Diferencias Centrales de 5 Puntos](./diferencias_5p_base.py)
+
+###  Ejercicios Desarrollados
+Suite de scripts que demuestran la precisión matemática y aplicaciones en variables cinemáticas de segundo orden:
+
+| Caso de Estudio | Enfoque / Aplicación | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Funciones Exponenciales** | Derivación de curvas con crecimiento acelerado ($e^x$ y $\ln(x)$) evaluando la estabilidad del método. | [ ver_codigo.py](./4_Dif_5P_1.py) |
+| **02. Cálculo de Aceleración** | Aplicación cinemática: Estimación de la segunda derivada (aceleración instantánea) usando diferencias finitas. | [ ver_codigo.py](./4_Dif_5P_2.py) |
+| **03. Torneo de Esquemas (3P vs 5P)** | Análisis comparativo de errores relativos corriendo el mismo problema bajo los órdenes $O(h^2)$ y $O(h^4)$. | [ ver_codigo.py](./4_Dif_5P_3.py) |
