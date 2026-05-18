@@ -79,3 +79,40 @@ Esto significa que elimina los términos no nulos tanto **debajo como encima de 
 | **03. Sistema sin Solución** | Detección analítica de sistemas inconsistentes o indeterminados (Determinante nulo). | [ ver_codigo.py](./08_sistema_sin_solucion.py) |
 | **04. Infinitas Soluciones** | Manejo de matrices singulares con infinitas soluciones dependientes de variables libres. | [ ver_codigo.py](./09_infinitas_soluciones.py) |
 | **05. Balanceo Químico** | Aplicación práctica para balancear ecuaciones estequiométricas mediante sistemas homogéneos. | [ ver_codigo.py](./10_balanceo_quimico.py) |
+
+
+#  Método de Iteración de Jacobi
+
+###  Concepto Fundamental
+El método de **Jacobi** es un algoritmo iterativo diseñado para resolver sistemas lineales abiertos de la forma $Ax = b$. A diferencia de los métodos directos (como Gauss o Gauss-Jordan), Jacobi no modifica la matriz de coeficientes, sino que realiza un despeje algebraico de cada incógnita $x_i$ en función de las demás variables presentes en su respectiva ecuación.
+
+El algoritmo arranca con un vector de aproximación inicial (típicamente lleno de ceros). En cada iteración, se calculan los nuevos valores de **todas** las incógnitas basándose **estrictamente en los resultados obtenidos en la iteración anterior**. Es decir, los valores actualizados no se utilizan inmediatamente, sino que se guardan de forma simultánea para la siguiente ronda de cálculos.
+
+Para garantizar que el método converja hacia la solución verdadera, la matriz de coeficientes $A$ debe cumplir preferentemente con la propiedad de ser **estrictamente dominante por diagonal**. Esto significa que, en cada fila, el valor absoluto del elemento en la diagonal principal debe ser mayor que la suma de los valores absolutos de todos los demás elementos de esa misma fila:
+$$|a_{ii}| > \sum_{j \neq i} |a_{ij}|$$
+
+###  El Algoritmo Paso a Paso
+
+1. **Despeje de Variables:** Convertir el sistema original despejando cada variable $x_i$ de la diagonal principal:
+   $$x_i^{(k+1)} = \frac{b_i - \sum_{j \neq i} a_{ij}x_j^{(k)}}{a_{ii}}$$
+2. **Vector Semilla:** Definir una aproximación inicial $x^{(0)} = [x_1^{(0)}, x_2^{(0)}, \dots, x_n^{(0)}]^T$ (comúnmente ceros).
+3. **Iteración Simultánea:** Evaluar la fórmula de despeje para encontrar el nuevo conjunto de respuestas $x^{(k+1)}$ usando únicamente los valores previos de $x^{(k)}$.
+4. **Evaluación del Error:** Calcular el error relativo aproximado al final de cada iteración. El proceso se detiene cuando el error cae por debajo de la tolerancia estipulada ($\text{Error} < \text{tol}$).
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Jacobi General](./jacobi_base.py)
+
+###  Ejercicios Desarrollados
+Menú de scripts independientes para estudiar el comportamiento dinámico y la convergencia de Jacobi:
+
+| Caso de Estudio | Tipo de Enfoque | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Sistema 3x3 Dominante** | Solución paso a paso sobre una matriz con diagonal estrictamente dominante. | [ ver_codigo.py](./11_jacobi_dominante.py) |
+| **02. Error de Tolerancia Fijo** | Monitoreo del error aproximado hasta alcanzar una precisión estricta de $10^{-5}$. | [ ver_codigo.py](./12_jacobi_tolerancia.py) |
+| **03. Demostración de Divergencia** | Ejemplo práctico de cómo falla el método si la diagonal no es dominante. | [ ver_codigo.py](./13_jacobi_divergente.py) |
+| **04. Reordenamiento de Filas** | Estrategia algorítmica para forzar la dominancia diagonal intercambiando renglones. | [ ver_codigo.py](./14_jacobi_reordenado.py) |
+| **05. Sistema 4x4 Iterativo** | Escalación del algoritmo iterativo simultáneo sobre un sistema de 4 variables. | [ ver_codigo.py](./15_jacobi_sistema4x4.py) |
