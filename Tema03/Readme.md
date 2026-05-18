@@ -116,3 +116,39 @@ Menú de scripts independientes para estudiar el comportamiento dinámico y la c
 | **03. Demostración de Divergencia** | Ejemplo práctico de cómo falla el método si la diagonal no es dominante. | [ ver_codigo.py](./13_jacobi_divergente.py) |
 | **04. Reordenamiento de Filas** | Estrategia algorítmica para forzar la dominancia diagonal intercambiando renglones. | [ ver_codigo.py](./14_jacobi_reordenado.py) |
 | **05. Sistema 4x4 Iterativo** | Escalación del algoritmo iterativo simultáneo sobre un sistema de 4 variables. | [ ver_codigo.py](./15_jacobi_sistema4x4.py) |
+
+
+#  Método de Iteración de Gauss-Seidel
+
+###  Concepto Fundamental
+El método de **Gauss-Seidel** es la optimización iterativa más popular para resolver sistemas lineales $Ax = b$. Se basa en el mismo principio de despeje diagonal que el método de Jacobi, pero introduce una mejora crítica en el flujo de datos: **la actualización inmediata**.
+
+En Jacobi, los nuevos valores calculados se congelan hasta la siguiente iteración. En **Gauss-Seidel**, tan pronto como se calcula el valor de una incógnita (por ejemplo, $x_1$), este nuevo dato se inyecta **de inmediato** en la evaluación de las ecuaciones restantes dentro de la misma iteración. Este aprovechamiento de información fresca acelera sustancialmente la velocidad de convergencia, requiriendo por lo general cerca de la mitad de iteraciones que Jacobi para alcanzar la misma tolerancia.
+
+Al igual que su predecesor, su convergencia está garantizada si la matriz es **estrictamente dominante por diagonal** o si es **simétrica y definida positiva**.
+
+###  El Algoritmo Paso a Paso
+
+1. **Ecuación de Despeje:** Se aíslan las variables de la diagonal principal integrando los valores actualizados en tiempo real:
+   $$x_i^{(k+1)} = \frac{b_i - \sum_{j < i} a_{ij}x_j^{(k+1)} - \sum_{j > i} a_{ij}x_j^{(k)}}{a_{ii}}$$
+2. **Vector de Arranque:** Se establece el estado inicial $x^{(0)}$ (comúnmente ceros).
+3. **Iteración Concurrente:** Se calcula $x_i$ sustituyendo los términos que ya se actualizaron en la iteración presente ($k+1$) y los que aún faltan de la iteración previa ($k$).
+4. **Condición de Parada:** El ciclo finaliza cuando la fluctuación de todas las variables en la última ronda sea menor al nivel de error permitido.
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Gauss-Seidel General](./gauss_seidel_base.py)
+
+###  Ejercicios Desarrollados
+Menú de scripts independientes diseñados para analizar la eficiencia de la inyección inmediata de variables:
+
+| Caso de Estudio | Tipo de Enfoque / Aplicación | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Sistema 3x3 Eficiente** | Solución base demostrando cómo converge más rápido que Jacobi. | [ ver_codigo.py](./16_seidel_eficiente.py) |
+| **02. Criterio de Tolerancia** | Búsqueda iterativa estricta monitoreando el error relativo máximo. | [ ver_codigo.py](./17_seidel_tolerancia.py) |
+| **03. Impacto del Relajamiento** | Introducción opcional al factor de relajación (SOR) para acelerar sistemas rígidos. | [ ver_codigo.py](./18_seidel_relajacion.py) |
+| **04. Análisis Comparativo** | Un script que corre el mismo sistema en Jacobi y Seidel para comparar iteraciones reales. | [ ver_codigo.py](./19_seidel_vs_jacobi.py) |
+| **05. Matriz de Ingeniería 4x4** | Aplicación avanzada sobre un sistema denso de 4 variables de estado estructural. | [ ver_codigo.py](./20_seidel_sistema4x4.py) |
