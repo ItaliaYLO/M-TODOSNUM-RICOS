@@ -1,0 +1,18 @@
+from gauss_seidel_base import gauss_seidel
+
+if __name__ == "__main__":
+    print("=== CASO 01: MATRIZ ESTÁNDAR 3X3 (GAUSS-SEIDEL) ===")
+    
+    A = [
+        [10.0, -1.0, 2.0],
+        [-1.0, 11.0, -1.0],
+        [2.0, -1.0, 10.0]
+    ]
+    b = [6.0, 25.0, -11.0]
+    
+    solucion = gauss_seidel(A, b, tol=1e-3)
+    
+    if solucion:
+        print("\n-> Solución aproximada final:")
+        for i, val in enumerate(solucion):
+            print(f"x_{i+1} = {val:.5f}")
