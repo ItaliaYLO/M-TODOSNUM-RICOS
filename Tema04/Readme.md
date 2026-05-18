@@ -133,3 +133,36 @@ Suite de programas funcionales dedicados a explorar la alta precisión y las res
 | **01. Área de Función Cúbica** | Comprobación empírica de la exactitud teórica total del método sobre curvas cúbicas. | [ ver_codigo.py](./4_Int_Sm_1.py) |
 | **02. Longitud de Arco en Ingeniería** | Aplicación avanzada: Integración de la raíz de la derivada para hallar la longitud real de un cable colgado. | [ ver_codigo.py](./4_Int_Sm_2.py) |
 | **03. Duelo Definitivo (Trapecio vs Simpson)** | Análisis comparativo de precisión cruzada enfrentando ambos métodos en igualdad de condiciones de discretización. | [ ver_codigo.py](./4_Int_Sm_3.py) |
+
+
+#  Integración Numérica: Método de la Cuadratura Gaussiana
+
+###  Concepto Fundamental
+El **Método de la Cuadratura Gaussiana** es la técnica de integración numérica más eficiente y elegante en el análisis numérico moderno. A diferencia de las reglas tradicionales que obligan a evaluar la función en puntos fijos e igualmente espaciados (como las mallas del Trapecio o Simpson), la Cuadratura Gaussiana elimina esta restricción de rigidez posicional de los nodos.
+
+Su principio fundamental radica en elegir estratégicamente las posiciones de los puntos de evaluación ($t_i$) y las ponderaciones o pesos correspondientes ($w_i$), de manera que el área calculada minimice por completo el error de truncamiento. Estos puntos óptimos corresponden matemáticamente a las raíces de los **Polinomios de Legendre**. Gracias a esta distribución libre y óptima, un esquema de Cuadratura Gaussiana de $n$ puntos es capaz de integrar cualquier polinomio de grado $2n-1$ o menor de manera **exacta**. Es el motor por excelencia utilizado en el método de elementos finitos (FEM) y simulaciones de dinámica estructural avanzada.
+
+###  El Algoritmo Paso a Paso
+
+1. **Cambio de Variable:** Los puntos y pesos tabulados de Legendre están definidos estrictamente para un intervalo estándar $[-1, 1]$. Por tanto, cualquier integral con límites reales $[a, b]$ debe ser mapeada linealmente mediante la transformación:
+   $$x = \frac{b - a}{2}t + \frac{b + a}{2} \implies dx = \frac{b - a}{2}dt$$
+2. **Selección del Orden ($n$):** Elegir el número de puntos de Gauss a evaluar (típicamente $n=2$ o $n=3$ son suficientes para una precisión extraordinaria).
+3. **Consulta de Coeficientes:** Buscar en tablas los pesos $w_i$ y las raíces $t_i$ correspondientes al orden $n$ seleccionado.
+4. **Evaluación y Suma Ponderada:** Calcular el valor numérico multiplicando los pesos por la función evaluada en los nodos transformados:
+   $$\int_{a}^{b} f(x)dx \approx \frac{b - a}{2} \sum_{i=1}^{n} w_i f\left( \frac{b - a}{2}t_i + \frac{b + a}{2} \right)$$
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Cuadratura Gaussiana General (n=2 y n=3)](./cuadratura_gaussiana_base.py)
+
+###  Ejercicios Desarrollados
+Scripts independientes diseñados para llevar a la terminal la potencia algorítmica de Legendre:
+
+| Caso de Estudio | Enfoque / Aplicación | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Cuadratura de 2 Puntos** | Implementación directa para resolver una función polinómica estándar demostrando la velocidad del cambio de variable. | [ ver_codigo.py](./4_Int_Gauss_1.py) |
+| **02. Curvas Trascendentes** | Evaluación matemática estricta sobre funciones complejas no lineales ($e^{-x^2}$ y $\ln(x)$) analizando la precisión límite. | [ ver_codigo.py](./4_Int_Gauss_2.py) |
+| **03. Cálculo del Centro de Masa** | Aplicación física-ingeniería: Integración de momentos mecánicos para hallar las coordenadas del centroide de una placa de densidad variable. | [ ver_codigo.py](./4_Int_Gauss_3.py) |
