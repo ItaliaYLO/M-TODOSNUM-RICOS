@@ -36,7 +36,7 @@ A continuación, se presentan los problemas resueltos paso a paso y las simulaci
 
 | Caso de Estudio | Descripción | Enlace al Código |
 | :--- | :--- | :---: |
-| **01. Error de Redondeo** | Pérdida de precisión al cortar decimales en operaciones iterativas. | [ Ver Código](./) |
+| **01. Error de Redondeo** | Pérdida de precisión al cortar decimales en operaciones iterativas. | [./ejercicio1_redondeo.py] |
 | **02. Error de Truncamiento** | Error inducido al cortar una serie infinita (como Taylor) en un término finito. | [ Ver Código](./) |
 | **03. Precisión de Máquina** | Algoritmo para calcular el Épsilon de la máquina ($\epsilon$). | [ Ver Código](./) |
 | **04. Operaciones Aritméticas** | Análisis de propagación de errores en sumas y restas críticas. | [ Ver Código](./) |
