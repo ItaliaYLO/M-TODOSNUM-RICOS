@@ -75,3 +75,41 @@ Menú de problemas resueltos aplicando el método sobre diversas funciones matem
 | **03. Función Trigonométrica** | Evaluación de raíces oscilatorias acotadas en un intervalo. | [ ver_codigo.py](./08_funcion_trigonometrica.py) |
 | **04. Función Combinada** | Mezcla de términos algebraicos y exponenciales simultáneos. | [ ver_codigo.py](./09_funcion_combinada.py) |
 | **05. Análisis de Error Porcentual** | Monitoreo estricto del error porcentual en cada paso. | [ ver_codigo.py](./10_error_porcentual_reglafalsa.py) |
+
+---
+
+## 3️ Método de Iteración de Punto Fijo
+
+###  Concepto Fundamental
+A diferencia de los métodos cerrados, el método de **Punto Fijo** es un método abierto que no requiere de un intervalo que encierre la raíz de forma obligatoria. Consiste en transformar algebraicamente la ecuación original $f(x) = 0$ para despejar una variable $x$ en función del resto, obteniendo una ecuación equivalente de la forma:
+$$x = g(x)$$
+
+El algoritmo inicia con un único valor estimado $x_0$ y busca el punto geométrico exacto donde la curva $y = g(x)$ se cruza con la recta identidad de 45 grados ($y = x$). Para que este método garantice su éxito (convergencia), la derivada de la función de aproximación debe cumplir con la condición de contracción en el entorno de la raíz:
+$$|g'(x)| < 1$$
+
+###  El Algoritmo Paso a Paso
+
+1. **Preparación y Despeje:** Modificar algebraicamente $f(x) = 0$ para encontrar una función adecuada $g(x)$.
+2. **Valor Inicial:** Definir una aproximación semilla o valor de arranque $x_0$.
+3. **Iteración Recursiva:** Calcular los siguientes términos aplicando la regla de asignación:
+   $$x_{i+1} = g(x_i)$$
+4. **Criterio de Convergencia:** El proceso se detiene cuando la diferencia absoluta o relativa entre dos estimaciones consecutivas es menor que la tolerancia fijada:
+   $$|x_{i+1} - x_i| < \text{tol}$$
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo de Punto Fijo General](./punto_fijo_base.py)
+
+###  Ejercicios Desarrollados
+Catálogo de problemas resueltos diseñados para evaluar la convergencia y divergencia de distintas funciones $g(x)$:
+
+| Caso de Estudio | Función a Evaluar | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Raíz Cuadrada** | Despeje clásico $g(x)$ basado en una raíz cuadrada estable. | [ ver_codigo.py](./11_g_raiz_cuadrada.py) |
+| **02. Coseno Iterativo** | Evaluación de funciones trigonométricas con convergencia en espiral. | [ ver_codigo.py](./12_g_coseno.py) |
+| **03. Análisis de Convergencia** | Comparativa matemática demostrando por qué algunos despejes divergen. | [ ver_codigo.py](./13_analisis_convergencia.py) |
+| **04. Función Exponencial** | Búsqueda de punto fijo en curvas exponenciales amortiguadas. | [ ver_codigo.py](./14_g_exponencial.py) |
+| **05. Función Fraccionaria** | Despeje racional iterativo controlado para evitar divisiones por cero. | [ ver_codigo.py](./15_g_fraccionaria.py) |
