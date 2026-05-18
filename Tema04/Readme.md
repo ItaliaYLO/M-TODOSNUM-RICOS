@@ -64,3 +64,36 @@ Suite de scripts que demuestran la precisión matemática y aplicaciones en vari
 | **01. Funciones Exponenciales** | Derivación de curvas con crecimiento acelerado ($e^x$ y $\ln(x)$) evaluando la estabilidad del método. | [ ver_codigo.py](./4_Dif_5P_1.py) |
 | **02. Cálculo de Aceleración** | Aplicación cinemática: Estimación de la segunda derivada (aceleración instantánea) usando diferencias finitas. | [ ver_codigo.py](./4_Dif_5P_2.py) |
 | **03. Torneo de Esquemas (3P vs 5P)** | Análisis comparativo de errores relativos corriendo el mismo problema bajo los órdenes $O(h^2)$ y $O(h^4)$. | [ ver_codigo.py](./4_Dif_5P_3.py) |
+
+# Integración Numérica: Método del Trapecio (Compuesto)
+
+###  Concepto Fundamental
+El **Método del Trapecio** es uno de los esquemas más intuitivos y fundamentales de las fórmulas de Newton-Cotes para integración numérica. Consiste en aproximar la función matemática $f(x)$ mediante una línea recta (un polinomio de primer orden) sobre un intervalo cerrado $[a, b]$, convirtiendo geométricamente el área bajo la curva en un trapecio regular.
+
+Debido a que una sola línea recta genera un gran error de truncamiento en funciones con alta curvatura, se utiliza de forma práctica la **Versión Compuesta**. Esta variante divide el intervalo mayor $[a, b]$ en $n$ subintervalos o segmentos más pequeños de ancho uniforme $h$. Al calcular el área de cada trapecio individual y sumarlas todas, el error global disminuye de forma proporcional al incrementar el número de particiones ($O(h^2)$).
+
+###  El Algoritmo Paso a Paso
+
+1. **Definición del Dominio:** Establecer los límites de integración $a$ (inferior), $b$ (superior) y fijar el número de subintervalos deseados $n$.
+2. **Cálculo del Ancho de Segmento:** Determinar el tamaño de paso o espaciado uniforme $h$ mediante la relación:
+   $$h = \frac{b - a}{n}$$
+3. **Mapeo de Nodos Intermedios:** Evaluar los extremos de la función y definir los puntos interiores distribuidos simétricamente mediante la regla:
+   $$x_i = a + i \cdot h \quad \text{para } i = 0, 1, 2, \dots, n$$
+4. **Suma Ponderada:** Aplicar la fórmula compuesta. Los valores extremos de la función ($f(a)$ y $f(b)$) se suman de forma simple, mientras que todas las evaluaciones de los nodos intermedios se multiplican por 2, ya que son compartidos por dos trapecios contiguos:
+   $$\int_{a}^{b} f(x)dx \approx \frac{h}{2} \left[ f(a) + 2\sum_{i=1}^{n-1} f(x_i) + f(b) \right]$$
+
+---
+
+##  Implementación y Casos Prácticos
+
+###  Código Base del Método
+* [ Algoritmo del Trapecio Compuesto General](./trapecio_compuesto_base.py)
+
+###  Ejercicios Desarrollados
+Scripts ejecutables listos para su uso académico y análisis numérico de áreas:
+
+| Caso de Estudio | Enfoque / Aplicación | Enlace al Script |
+| :--- | :--- | :---: |
+| **01. Área de Función Cuadrática** | Aproximación directa de la integral sobre una parábola estándar para evaluar el algoritmo. | [ ver_codigo.py](./4_Int_Tr_1.py) |
+| **02. Cálculo de Energía Acumulada** | Problema de ingeniería eléctrica: Integración de una curva de potencia variable para obtener los kWh totales. | [ ver_codigo.py](./4_Int_Tr_2.py) |
+| **03. Evaluación Integral del Error** | Análisis de convergencia que incrementa de forma masiva el parámetro $n$ para observar cómo el error se reduce a cero. | [ ver_codigo.py](./4_Int_Tr_3.py) |
