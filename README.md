@@ -16,6 +16,8 @@ Selecciona un módulo para explorar su contenido detallado:
 | <br>**02. Solución de Ecuaciones**<br><br> | Métodos de bisección, punto fijo, Lagrange, Newton-Raphson y búsqueda de raíces. | [📂 Ir a Carpeta](./Tema02) |
 | <br>**03. Sistemas de Ecuaciones Lineales**<br><br> | Métodos directos (Gauss-Jordan) e iterativos (Jacobi, Gauss-Seidel) para sistemas $Ax = B$. | [📂 Ir a Carpeta](./Tema03) |
 | <br>**04. Diferenciación e Integración**<br><br> | Integración por Trapecio y Simpson, y aproximación de derivadas por diferencias finitas. | [📂 Ir a Carpeta](./Tema04) |
+<br>**05. Interpolación y Ajuste de Funciones**<br><br> | Métodos para valores intermedios: Interpolación de Newton, Lagrange, trazadores (Splines) y ajuste de curvas. | [📂 Ir a Carpeta](./Tema05) |
+| <br>**06. Solución de Ecuaciones Diferenciales**<br><br> | Resolución de EDOs mediante métodos de un paso (Euler, Runge-Kutta), pasos múltiples y sistemas de EDOs. | [📂 Ir a Carpeta](./Tema06) |
 
 
 
