@@ -7,14 +7,13 @@ def predictor_corrector(f, x0, y0, h, n):
     """
     x = np.linspace(x0, x0 + n*h, n + 1)
     y = np.zeros(n + 1)
-    # Arreglo para almacenar las evaluaciones de la función f(x, y)
+
     f_hist = np.zeros(n + 1)
     
     y[0] = y0
     f_hist[0] = f(x[0], y[0])
     
-    # 1. Arranque con Runge-Kutta de 4to Orden (RK4)
-    # Necesitamos los primeros 3 pasos (índices 1, 2, 3) para ABM4
+
     for i in range(3):
         k1 = h * f_hist[i]
         k2 = h * f(x[i] + 0.5*h, y[i] + 0.5*k1)
@@ -24,29 +23,23 @@ def predictor_corrector(f, x0, y0, h, n):
         y[i+1] = y[i] + (k1 + 2*k2 + 2*k3 + k4) / 6
         f_hist[i+1] = f(x[i+1], y[i+1])
 
-    # 2. Bucle de Pasos Múltiples (Adams-Bashforth-Moulton)
-    # Constantes pre-calculadas para mayor velocidad
+    
     c_ab = h / 24.0
     c_am = h / 24.0
 
     for i in range(3, n):
-        # Predictor: Adams-Bashforth de 4 pasos
+
         y_pred = y[i] + c_ab * (55*f_hist[i] - 59*f_hist[i-1] + 37*f_hist[i-2] - 9*f_hist[i-3])
         
-        # Evaluamos la función en el punto predicho
         f_pred = f(x[i+1], y_pred)
         
-        # Corrector: Adams-Moulton de 4 pasos
         y[i+1] = y[i] + c_am * (9*f_pred + 19*f_hist[i] - 5*f_hist[i-1] + f_hist[i-2])
         
-        # Actualizamos el historial con el valor corregido
         f_hist[i+1] = f(x[i+1], y[i+1])
         
     return x, y
 
-# --- Ejemplo de aplicación ---
 if __name__ == "__main__":
-    # EDO: dy/dx = y - x^2 + 1  |  y(0) = 0.5
     def edo(x, y): return y - x**2 + 1
     
     vx, vy = predictor_corrector(edo, 0, 0.5, 0.1, 10)
