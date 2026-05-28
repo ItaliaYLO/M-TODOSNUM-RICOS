@@ -16,20 +16,20 @@ def predictor_corrector(f, x0, y0, h, n):
         y[i+1] = y[i] + (k1 + 2*k2 + 2*k3 + k4) / 6
         fd[i+1] = f(x[i+1], y[i+1])
 
-    c = h / 24.0
     for i in range(3, n):
-        y_p = y[i] + c * (55*fd[i] - 59*fd[i-1] + 37*fd[i-2] - 9*fd[i-3])
+        y_p = y[i] + (h/24)*(55*fd[i] - 59*fd[i-1] + 37*fd[i-2] - 9*fd[i-3])
         f_p = f(x[i+1], y_p)
-        y[i+1] = y[i] + c * (9*f_p + 19*fd[i] - 5*fd[i-1] + fd[i-2])
+        y[i+1] = y[i] + (h/24)*(9*f_p + 19*fd[i] - 5*fd[i-1] + fd[i-2])
         fd[i+1] = f(x[i+1], y[i+1])
         
     return x, y
 
 if __name__ == "__main__":
-    def f(x, y): return -10 * y
+    def f(x, y): return y
     
-    vx, vy = predictor_corrector(f, 0, 1, 0.05, 20)
+    x0, y0, h, n = 0, 1, 0.1, 20
+    vx, vy = predictor_corrector(f, x0, y0, h, n)
     
-    print(f"--- Ejercicio 2.2 ---")
-    print(f"Aproximación en x={vx[-1]:.1f}: {vy[-1]:.6f}")
-    print(f"Valor real: {np.exp(-10 * vx[-1]):.6f}")
+    print(f"--- Ejercicio 2.1 ---")
+    print(f"Valor en x={vx[-1]:.1f}: {vy[-1]:.4f}")
+    print(f"Valor real (e^2): {np.exp(2):.4f}")
