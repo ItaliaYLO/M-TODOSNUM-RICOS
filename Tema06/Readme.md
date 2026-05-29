@@ -1,8 +1,14 @@
-# 🚀 Tema 6: Solución de Ecuaciones Diferenciales Ordinarias (EDO)
+# Tema 6: Solución de Ecuaciones Diferenciales Ordinarias (EDO)
 
 <div align="justify">
 
 Las **Ecuaciones Diferenciales Ordinarias (EDO)** constituyen el lenguaje fundamental de la ciencia y la ingeniería, ya que permiten modelar cualquier sistema donde el cambio de una variable depende de su estado actual. En la práctica, la gran mayoría de los sistemas reales (como la aerodinámica de un vehículo o la cinética de una reacción química compleja) no poseen una solución analítica cerrada, lo que hace indispensable el uso de **métodos numéricos iterativos** para aproximar su comportamiento con alta precisión.
+
+<p align="center">
+  <img src="_Generated1_Image_deqt25deqt25deqt.png" width="1000" alt="Banner Ecuaciones Diferenciales">
+</p>
+
+<div align="justify">
 
 ---
 
