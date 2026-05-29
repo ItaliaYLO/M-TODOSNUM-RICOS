@@ -28,28 +28,4 @@ A diferencia de la interpolación, el **ajuste de curvas** se utiliza cuando los
 
 ---
 
-# 🚀 Tema 6: Solución de Ecuaciones Diferenciales Ordinarias (EDO)
 
-<div align="justify">
-
-La resolución de **Ecuaciones Diferenciales Ordinarias** es el pilar de la simulación de sistemas dinámicos. Dado que la mayoría de las leyes de la física y la química se expresan en términos de tasas de cambio, los métodos numéricos permiten predecir el estado futuro de un sistema a partir de una condición inicial.
-
----
-
-### 🔸 6.1 Métodos de Paso Único
-Estos algoritmos calculan el valor de la variable dependiente en el siguiente paso basándose exclusivamente en la información del punto actual.
-
-* **Método de Euler:** Es el algoritmo más simple. Utiliza la pendiente al inicio del intervalo para proyectar el valor siguiente. Aunque es fundamental para entender la lógica numérica, posee un error acumulado considerable en pasos grandes.
-* **Método de Runge-Kutta (RK4):** Es el estándar de oro en computación científica. Evalúa la pendiente en cuatro puntos distintos del intervalo para obtener un promedio ponderado sumamente preciso de orden $O(h^4)$, equilibrando perfectamente el costo computacional y la exactitud.
-
----
-
-### 🔸 6.2 Métodos de Pasos Múltiples y Sistemas
-Optimizan el cálculo utilizando la memoria de puntos calculados previamente para mejorar la trayectoria de la solución.
-
-* **Esquemas Predictor-Corrector:** Implementan un enfoque de dos etapas donde primero se "predice" el valor futuro mediante un método explícito y luego se "corrige" mediante un método implícito para garantizar la estabilidad de la solución.
-* **Sistemas de EDOs:** Aplicación de los métodos anteriores a vectores de funciones. Esto permite resolver ecuaciones de orden superior (como la aceleración en sistemas mecánicos) transformándolas en un sistema de ecuaciones de primer orden interconectadas.
-
-</div>
-
----
