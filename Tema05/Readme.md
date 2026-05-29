@@ -3,6 +3,7 @@
 <div align="justify">
 
 En la práctica de la ingeniería, frecuentemente se dispone de un conjunto de datos discretos obtenidos mediante experimentos o muestreos. El objetivo de este tema es generar **funciones continuas** que permitan representar estos datos para realizar estimaciones, análisis de tendencias o cálculos de derivadas e integrales de forma analítica.
+![Imagen](ruta_de_la_imagen.png)(\Users\Lozad\Downloads\Generated_Image_deqt25deqt25deqt.png)
 
 ---
 
