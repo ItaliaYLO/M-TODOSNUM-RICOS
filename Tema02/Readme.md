@@ -35,7 +35,7 @@ Menú interactivo con problemas resueltos aplicando el método de bisección sob
 
 | Caso de Estudio | Tipo de Función | Enlace al Script |
 | :--- | :--- | :---: |
-| **01. Polinomio Cuadrático** | Curvas polinomiales sencillas de grado 2. | (C:\Users\Lozad\OneDrive\Pictures\Screenshots.png) | [ ver_codigo.py](./01_polinomio_cuadratico.py) |
+| **01. Polinomio Cuadrático** | Curvas polinomiales sencillas de grado 2. | [ ver_codigo.py](./01_polinomio_cuadratico.py) |
 | **02. Función Cúbica** | Análisis de raíces en ecuaciones de grado 3. | [ ver_codigo.py](./02_funcion_cubica.py) |
 | **03. Función Trascendental** | Combinación de identidades y álgebra mixta. | [ ver_codigo.py](./03_funcion_trascendental.py) |
 | **04. Función Exponencial** | Búsqueda de ceros en curvas de crecimiento y decaimiento. | [ ver_codigo.py](./04_funcion_exponencial.py) |
