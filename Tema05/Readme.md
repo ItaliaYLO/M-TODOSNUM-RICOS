@@ -1,22 +1,5 @@
-Tema 5: Interpolación y Ajuste de Funciones
-En la práctica de la ingeniería, frecuentemente se dispone de un conjunto de datos discretos obtenidos mediante experimentos o muestreos. El objetivo de este tema es generar funciones continuas que permitan representar estos datos para realizar estimaciones, análisis de tendencias o cálculos de derivadas e integrales de forma analítica.
+Tema 5: Interpolación y Ajuste de FuncionesEn el análisis numérico, la Interpolación y el Ajuste de Funciones representan herramientas críticas para la reconstrucción de señales y el análisis de datos experimentales. Mientras que la interpolación busca una función que pase estrictamente por un conjunto de puntos conocidos, el ajuste de curvas busca una tendencia global que minimice el error cuadrático, siendo ideal para datos con ruido estadístico.
 
-5.1 Interpolación Polinomial
-La interpolación se basa en la premisa de que la función aproximada debe pasar exactamente por todos los puntos proporcionados. Es ideal cuando los datos son precisos y no contienen ruido.
+🔹 5.1 Interpolación PolinomialLa interpolación es fundamental cuando se requiere estimar valores intermedios con alta precisión. En este módulo, implementamos algoritmos que transforman datos discretos en polinomios continuos:Polinomios de Lagrange: Este método construye un polinomio único de grado $n$ mediante una combinación lineal de polinomios base. Es la forma más directa de interpolación, aunque computacionalmente costosa si se añaden nuevos nodos.Diferencias Divididas de Newton: Un enfoque más eficiente y recursivo. Permite la construcción del polinomio de manera incremental, facilitando la expansión del grado del polinomio sin recalcular los coeficientes previos.Trazadores (Splines) Cúbicos: Para evitar el Efecto Runge (oscilaciones en los extremos), utilizamos splines. Estos conectan puntos mediante polinomios de tercer grado, garantizando que la función sea suave, es decir, continua en su primera y segunda derivada en cada nodo.
 
-Métodos Principales:
-Polinomios de Lagrange: Se fundamentan en una combinación lineal de polinomios base. Aunque conceptualmente elegante, es ineficiente si se desea agregar nuevos puntos al conjunto original.
-
-Polinomios de Newton (Diferencias Divididas): Este método es preferido por su naturaleza recursiva. Permite construir una tabla de diferencias que facilita la adición de nuevos datos sin necesidad de reiniciar todo el cálculo.
-
-Trazadores (Splines) Cúbicos: En lugar de usar un solo polinomio de alto grado para todos los puntos (que suele causar oscilaciones artificiales o "Efecto Runge"), se utilizan polinomios de bajo grado (generalmente grado 3) entre cada par de puntos, asegurando continuidad en la función y sus derivadas.
-
-5.2 Ajuste de Curvas (Regresión)
-A diferencia de la interpolación, el ajuste de curvas se utiliza cuando los datos tienen incertidumbre o errores experimentales. Aquí no buscamos pasar por cada punto, sino encontrar una curva que minimice la distancia global hacia todos ellos.
-
-Conceptos Clave:
-Criterio de Mínimos Cuadrados: Técnica matemática que minimiza la suma de los cuadrados de los residuos (la diferencia vertical entre el dato observado y la curva calculada).
-
-Regresión Lineal y Multilineal: Ajuste de datos a un modelo de línea recta o planos.
-
-Regresión No Lineal: Ajuste de datos a modelos exponenciales, potenciales o logarítmicos mediante la linealización de las ecuaciones.
+🔹 5.2 Ajuste de Curvas por Mínimos CuadradosA diferencia de la interpolación, aquí el objetivo es encontrar la curva de mejor ajuste. Se basa en minimizar la sumatoria de los residuos al cuadrado ($S_r$):Regresión Lineal: Ajuste de datos a un modelo de la forma $y = a_0 + a_1x$, ideal para relaciones de proporcionalidad directa.Regresión Polinomial: Permite modelar comportamientos con curvatura mediante polinomios de grado superior.Linealización de Modelos: Aplicación de logaritmos para ajustar modelos Exponenciales y Potenciales, transformando relaciones no lineales en estructuras lineales para su resolución sencilla.
