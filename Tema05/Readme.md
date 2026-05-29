@@ -1,4 +1,4 @@
-# 📊 Tema 5: Interpolación y Ajuste de Funciones
+#  Tema 5: Interpolación y Ajuste de Funciones
 
 <div align="justify">
 
